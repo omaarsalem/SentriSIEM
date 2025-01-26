@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto py-6 px-4">
+        <h1 class="text-3xl font-bold mb-4">Welcome, {{ user.username }}!</h1>
+
+        <!-- Stat Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-gray-800 p-4 rounded-lg shadow">
+                <h2 class="text-lg font-medium">Total Logs</h2>
+                <p class="text-2xl font-bold">{{ stats.total_logs }}</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg shadow">
+                <h2 class="text-lg font-medium">Active Devices</h2>
+                <p class="text-2xl font-bold">{{ stats.active_devices }}</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg shadow">
+                <h2 class="text-lg font-medium">Alerts Today</h2>
+                <p class="text-2xl font-bold">{{ stats.alerts_today }}</p>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="space-x-4">
+            <a href="/logs" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded">Logs</a>
+            <a href="/settings" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">Settings</a>
+            <a href="/reports" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">Reports</a>
+            <a href="/logout" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

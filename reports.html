@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports | SentriSIEM</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js CDN -->
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/static/img/logo.png" alt="SentriSIEM Logo">
+            <h1>SentriSIEM</h1>
+        </div>
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/reports" class="active">Reports</a>
+            <a href="/settings">Settings</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Top 5 Source IPs -->
+        <section class="report-section">
+            <h2>Top 5 Source IPs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source IP</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ip in frequent_ips %}
+                    <tr>
+                        <td>{{ ip[0] }}</td>
+                        <td>{{ ip[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Protocol Breakdown -->
+        <section class="report-section">
+            <h2>Protocol Breakdown</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Protocol</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for protocol in protocol_usage %}
+                    <tr>
+                        <td>{{ protocol[0] }}</td>
+                        <td>{{ protocol[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Traffic Trends Chart -->
+        <section class="report-section">
+            <h2>Traffic Trends</h2>
+            <canvas id="trafficTrendsChart"></canvas>
+        </section>
+
+        <!-- Anomalies Chart -->
+        <section class="report-section">
+            <h2>Anomalies in Traffic</h2>
+            <canvas id="anomaliesChart"></canvas>
+        </section>
+    </main>
+    <script src="/static/js/reports.js"></script> <!-- Include Chart Logic -->
+</body>
+</html>

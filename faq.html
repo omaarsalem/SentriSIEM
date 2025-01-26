@@ -1,0 +1,9 @@
+<h1>Frequently Asked Questions</h1>
+<ul>
+    {% for faq in faqs %}
+    <li>
+        <strong>{{ faq.question }}</strong>
+        <p>{{ faq.answer }}</p>
+    </li>
+    {% endfor %}
+</ul>

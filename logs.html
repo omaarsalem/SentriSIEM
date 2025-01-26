@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logs</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.2.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <div class="container mx-auto py-6 px-4">
+        <h1 class="text-3xl font-bold mb-6">Logs</h1>
+
+        <table class="w-full bg-gray-800 text-left rounded-lg">
+            <thead>
+                <tr class="bg-gray-700 text-gray-300">
+                    <th class="px-4 py-2">ID</th>
+                    <th class="px-4 py-2">Timestamp</th>
+                    <th class="px-4 py-2">Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                <tr class="border-t border-gray-700">
+                    <td class="px-4 py-2">{{ log.id }}</td>
+                    <td class="px-4 py-2">{{ log.timestamp }}</td>
+                    <td class="px-4 py-2">{{ log.message }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

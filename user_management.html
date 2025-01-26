@@ -1,0 +1,29 @@
+<h1>User Management</h1>
+<form method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <select name="role">
+        <option value="Admin">Admin</option>
+        <option value="Viewer">Viewer</option>
+    </select>
+    <button type="submit" name="action" value="add">Add User</button>
+    <button type="submit" name="action" value="delete">Delete User</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td>{{ user[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
